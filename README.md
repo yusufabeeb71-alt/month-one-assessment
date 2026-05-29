@@ -425,31 +425,3 @@ yes
 ```
 
 when prompted.
-
----
-
-# Estimated AWS Costs
-
-| Resource                 | Approximate Hourly Cost               |
-| ------------------------ | ------------------------------------- |
-| NAT Gateway x2           | $0.09/hr (~$65/month if left running) |
-| EC2 Instances x4         | $0.05/hr combined                     |
-| Load Balancer            | $0.02/hr                              |
-| Elastic IPs (unattached) | $0.005/hr each                        |
-
-Always run `terraform destroy` after completing the assessment.
-
----
-
-# Notes on Terraform State
-
-The `terraform.tfstate` file is gitignored to prevent accidental exposure of sensitive infrastructure data.
-
-For assessment purposes, a manually exported version may be included separately.
-
-In production environments, Terraform state should be stored remotely using:
-
-* AWS S3 backend
-* DynamoDB state locking
-* Encryption at rest
-* IAM-controlled access
